@@ -15,7 +15,9 @@ class Butterworth:
 	def getCoefs(self):
 		nyq = 0.5 * self.sample_rate;
 		normal_cutoff = self.cutoff_freq / nyq;
-		b, a = butter(order, normal_cutoff, btype=self.filter_mode, analog=False)
+		print self.filter_order;
+		print normal_cutoff
+		b, a = butter(self.filter_order, normal_cutoff, btype=self.filter_mode, analog=False)
 		return b, a
 
 	def filter(self, data):
